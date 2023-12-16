@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body{
+        font-size: 20px;
+    }
+</style>    
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+   <h2> {{d.title}}</h2><br> 
+        {{d.description}}<br><br>
+       <b> ₹{{d.price}}</b><br>
+</div>
+        <div class="col-md-6">
+       <br> <img src="{{d.img.url}}" widt="400" height="500" >
+        </div>
+    </div>
+
+<form action="{% url 'myapp:detail' d.id d.slug%}" method="post">
+    {% csrf_token %}
+    {{ f }}
+    <input type="submit" value="Add to Cart">
+</form>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+   
+	</form>
+
+	</div>
+
+</div>
+	<br><br><br>
+	<h6>Reviews:</h6>
+    
+    {% for i in reviews %}
+
+    {{forloop.counter}} - {{i.review}} <br>
+    at {{i.created_at}} by {{i.user}} <br></center>
+
+    {% endfor %}
+
+</div>
+
+
+{% endblock %}

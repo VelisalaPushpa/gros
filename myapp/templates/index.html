@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<center><h1 style="color:orangered;">GROCERY PRODUCTS</h1></center>
+<div class="container">
+  <div class="row">
+    <div class="row">
+      {% for i in p %}
+      <div class="col-md-4 mb-4">
+        <div class="card">
+              <center><img src="{{i.img.url}}" width="150" height="150"></center><br>
+              <div class="card-body">
+                {% if i.product_available is True %}
+                <center><h5 class="card-title"><a href="{% url 'myapp:detail' i.id i.slug %}"><b>{{i.title}}</b></a><br></h5>
+                ⟨₹⟩{{i.price}}</center>
+                <br><br>
+                {% else %}   
+                <b>Out Of Stock</b>
+                {% endif %}
+              </div>
+            </div> 
+          </div>
+  
+      {% endfor %} <br><br> 
+        </div>
+       
+  </div>
+  
+  {% endblock %}
+</div>

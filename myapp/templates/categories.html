@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<center><h1 style="color:orangered;">GROCERY PRODUCTS</h1></center>
+<img src="https://www.welfareeshopping.com/frontAssets/images/banner-4.jpg" width="100%" height="700">
+<center><b><h1>Products By Category</h1></b></center>
+<div class="w3-container">
+    <div class="row">
+        {% for i in c %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+              <center><img src="{{ i.img.url }}" class="card-img-top img-fluid rounded" alt="{{ i.title }}" style="max-width: 200px; height: 210px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{% url 'myapp:products' i.id i.slug %}">{{ i.title }}</a>
+                    </h5>
+                </div>
+            </div>
+        </div></center> 
+        {% endfor %}
+    </div><br></div>
+    <div class="card primary card-expand-lg bg-success">
+      <br> <center><h1>CONTACT US</h1></center>
+      <h5><i class="material-icons">place:-</i><a href="https://www.google.com/maps/place/Parvathaneni+Brahmayya+Siddhartha+college+of+Arts+%26+Science/@16.5055349,80.6469164,17z/data=!4m15!1m8!3m7!1s0x3a35fab6cd09a89b:0xd33167f96ffe60b7!2sGJ4X%2B6Q9+PB+Siddhartha+College+Gym,+Mogalrajapuram,+Siddhartha+Nagar,+Benz+Circle,+Vijayawada,+Andhra+Pradesh+520010!3b1!8m2!3d16.5055298!4d80.6494913!16s%2Fg%2F1hhj1fh8g!3m5!1s0x3a35fab12587c72b:0x20aec0bac504143c!8m2!3d16.5050802!4d80.648373!16s%2Fg%2F1tzvtzmq?entry=ttu" class="text-dark">PARVATHANENI BRHAMAYYA SIDDHARTHA COLLEGE OF ARTS AND SCINCE</a></h5>
+      <h5><i class="material-icons">local_phone:-</i>7794964155</h5>
+      <h5><i class="material-icons">mail:-</i>velisilap@gmail.com</h5>
+      <CENTER><h2>FOLLOW US</h2></CENTER>
+      <h4> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://twitter.com/i/flow/login?redirect_after_login=%2FPBSiddharthaco2" class="text-dark"  style='font-size:24px'><i class="fa fa-twitter"></i></a>&nbsp;&nbsp;<a href="https://www.facebook.com/pbsiddharthaclg/" class="text-dark" style='font-size:24px'><i class="material-icons" class="text-dark">facebook</i></a>&nbsp;&nbsp;<a href="https://www.instagram.com/pbsiddharthacollege/" class="text-dark" style='font-size:24px'><i class="fa fa-instagram"></i></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/school/parvathaneni-brahmayya-siddhartha-college-of-arts-&-science/?originalSubdomain=in" class="text-dark" style='font-size:24px'><i class="fa fa-linkedin-square"></i></a></h4>
+    <br>
+      <br>
+    </div></div>
+
+    {% endblock %}
